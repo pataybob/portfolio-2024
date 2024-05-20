@@ -1,0 +1,67 @@
+body {
+  overflow-x: hidden;
+}
+
+.wrapper .container .hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 850px;
+}
+.wrapper .container .hero .page {
+  position: fixed;
+  left: 0;
+  top: 50%;
+}
+.wrapper .container .hero .page .info {
+  min-width: 300px;
+  text-align: center;
+  height: 40px;
+  border-radius: 25px;
+  transform: rotate(90deg);
+  background: #777777;
+  position: absolute;
+}
+.wrapper .container .hero .page .info .home {
+  color: #fff;
+  font-weight: 700;
+  position: relative;
+  top: 10px;
+}
+.wrapper .container .hero .main__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper .container .hero .main__content h2 {
+  font-size: 32px;
+  font-weight: bold;
+  background: linear-gradient(to right, #FF0000 44%, #00FFA3 56%, #8AA9D6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.wrapper .container .hero .main__content .my__name {
+  position: relative;
+}
+.wrapper .container .hero .main__content .my__name h1 {
+  position: relative;
+  bottom: 50px;
+  font-size: 196px;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  letter-spacing: -12px;
+}
+.wrapper .container .hero .main__content .my__name .name {
+  font-size: 160px;
+  position: relative;
+  top: 80px;
+}
+.wrapper .container .hero .main__content a {
+  font-size: 36px;
+  font-weight: 700;
+  background: linear-gradient(to right, #FF0000 44%, #00FFA3 56%, #8AA9D6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}/*# sourceMappingURL=main.css.map */

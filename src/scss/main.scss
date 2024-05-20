@@ -1,0 +1,84 @@
+body{
+    overflow-x: hidden;
+}
+
+.wrapper{
+    // overflow-x: hidden;
+    .container{
+        .hero{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 850px;
+            .page{
+                position: fixed;
+                left: 0;
+                top: 50%;
+                .info{
+                    min-width: 300px;
+                    text-align: center;
+                    
+                    height: 40px;
+                    border-radius: 25px;
+                    transform: rotate(90deg);
+                    background: #777777;
+                    position: absolute;
+                    // right: 100%;
+                    // top: 50%;
+                    .home{
+                        color: #fff;
+                        font-weight: 700;
+                        position: relative;
+                        top: 10px;
+                    }
+                }
+            }
+            
+            .main__content{
+                display: flex;
+
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                h2{
+                    font-size:  32px;
+                    font-weight: bold;
+                    background: linear-gradient(to right, #FF0000 44%, #00FFA3 56%, #8AA9D6);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+
+                }
+                .my__name{
+                    position: relative;
+
+                    h1{
+                        position: relative;
+                        bottom: 50px;
+                        font-size: 196px;
+                        font-weight: 700;
+                        text-align: center;
+                        color: #fff;
+                        letter-spacing: -12px;
+                        
+                        
+                        
+                        
+                    }
+                    .name{
+                        font-size: 160px;
+                        position: relative;
+                        top: 80px;
+                    }
+                }
+                a{
+                    font-size: 36px;
+                    font-weight: 700;
+                    background: linear-gradient(to right, #FF0000 44%, #00FFA3 56%, #8AA9D6);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+        }
+    }
+}
+

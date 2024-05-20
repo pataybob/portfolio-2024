@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Typing HTML</title>
+<style>
+    /* Стили */
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    #typed-text {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 16px;
+        color: #333;
+        white-space: pre-wrap;
+        overflow: hidden;
+        animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+
+        to {
+            width: 100%;
+        }
+    }
+
+    @keyframes blink-caret {
+        from, to {
+            border-color: transparent;
+        }
+
+        50% {
+            border-color: black;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="wrapper">
+    <pre id="typed-text"></pre>
+</div>
+
+<script>
+    // JavaScript код
+    document.addEventListener("DOMContentLoaded", function() {
+        const text = `<div class="wrapper">
+    <div class="container">
+        <div class="about__me">
+            <div class="profile__photo">
+                <img src="profile-photo.png" alt="profile photo">
+            </div>
+            <div class="profile__info">
+                <h1>Привет, я Денис Вишняков</h1>
+                <p>Я начинающий frontend-разработчик</p>
+            </div>
+            <div class="button">next slide</div>
+        </div>
+    </div>
+</div>`;
+        let index = 0;
+
+        function typeText() {
+            if (index < text.length) {
+                document.getElementById("typed-text").textContent += text.charAt(index);
+                index++;
+                setTimeout(typeText, 10); // Скорость печати (в миллисекундах)
+            } else {
+                // Печать завершена
+            }
+        }
+
+        // Запускаем функцию печати текста
+        typeText();
+    });
+</script>
+</body>
+</html>
