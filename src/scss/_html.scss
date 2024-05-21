@@ -1,9 +1,167 @@
 .wrapper{
     .container{
         main{
+            margin-top: 200px;
+            height: 1080px;
             .code__editor{
-                
+                width: 1500px;
+                height: 800px;
+                background: #fff;
+                .code__header{
+                    width: 100%;
+                    background: rgb(24,24,24);
+                    display: flex;
+                    flex-direction: column;
+                    .top__header{
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        .html{
+                            width: 150px;
+                            height: 40px;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            background: rgb(31,31,31);
+                            gap: 10px;
+                            p{
+                                color: rgb(228, 101, 17);
+                            }
+                        }
+                        .scss{
+                            width: 150px;
+                            height: 40px;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 10px;
+                            p{
+                                color: rgb(228, 101, 17);
+                            }
+                        }
+                    }
+                    .post__header{
+                        width: 100%;
+                        background: rgb(31,31,31);
+                        height: 30px;
+                        padding: 5px;
+                        .road__container{
+                            display: flex;
+                            flex-direction: row;
+                            gap: 5px;
+                            .ind{
+                                    color: #c5bcbc;
+                                    font-size: 14px;
+                            }
+                            .htm{
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                gap: 5px;
+                                p{
+                                    color: #c5bcbc;
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                .main__code{
+                    background: rgb(31,31,31);
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 50px;
+                    .main__code-wrap{
+                        display: flex;
+                        flex-direction: row;
+                        .counter__side{
+                            text-align: right;
+                            width: 5px;
+                            display: flex;
+                            flex-direction: column;
+                            p{
+                                font-size: 16px;
+                                font-weight: 400;
+                                color: #918080;
+                            }
+    
+                        }
+                        .text__side{
+                            margin-left: 25px;
+                            width: 95%;
+                            pre{
+    
+                            }
+                        }
+                    }
+                    
+                }
             }
         }
     }
+}
+
+
+#typed-text {
+    font-size: 16px;
+    color: #FFF;
+    white-space: pre-wrap;
+    overflow: hidden;
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: black;
+    }
+}
+
+
+.keyword {
+    color: #FFA500; /* Оранжевый */
+}
+
+.string {
+    color: #28A745; /* Зеленый */
+}
+
+.comment {
+    color: #6C757D; /* Серый */
+}
+
+.html-tag {
+    color: #D73A49; /* Красный */
+}
+
+
+.text {
+    color: #ffffff; /* Черный */
+}
+
+
+.div-tag{
+    color: #007BFF;
+}
+
+.source-tag{
+    color: #00c3ff;
 }

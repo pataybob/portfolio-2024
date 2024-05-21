@@ -1,86 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auto Typing HTML</title>
-<style>
-    /* Стили */
-    .wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #f0f0f0;
-    }
-
-    #typed-text {
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 16px;
-        color: #333;
-        white-space: pre-wrap;
-        overflow: hidden;
-        animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-        from {
-            width: 0;
-        }
-
-        to {
-            width: 100%;
-        }
-    }
-
-    @keyframes blink-caret {
-        from, to {
-            border-color: transparent;
-        }
-
-        50% {
-            border-color: black;
-        }
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/css/text.css">
 </head>
+
+
 <body>
-<div class="wrapper">
-    <pre id="typed-text"></pre>
-</div>
+
+    <style>
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.about__me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile__photo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile__info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.profile__info p {
+    font-size: 18px;
+    color: #555;
+}
+
+.button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.keyword {
+    color: #007BFF; /* Синий */
+}
+
+.string {
+    color: #28A745; /* Зеленый */
+}
+
+.comment {
+    color: #6C757D; /* Серый */
+}
+
+.html-tag {
+    color: #D73A49; /* Красный */
+}
+
+.attribute {
+    color: #FFA500; /* Оранжевый */
+}
+
+.text {
+    color: #000000; /* Черный */
+}
+    </style>
+
+<div id="typed-text"></div>
+
 
 <script>
-    // JavaScript код
-    document.addEventListener("DOMContentLoaded", function() {
-        const text = `<div class="wrapper">
-    <div class="container">
-        <div class="about__me">
-            <div class="profile__photo">
-                <img src="profile-photo.png" alt="profile photo">
-            </div>
-            <div class="profile__info">
-                <h1>Привет, я Денис Вишняков</h1>
-                <p>Я начинающий frontend-разработчик</p>
-            </div>
-            <div class="button">next slide</div>
-        </div>
-    </div>
-</div>`;
-        let index = 0;
+document.addEventListener("DOMContentLoaded", function() {
+    const textParts = [
+        { text: '<div class="wrapper">', className: 'html-tag' },
+        { text: '<div class="container">', className: 'html-tag' },
+        { text: '<div class="about__me">', className: 'html-tag' },
+        { text: '<div class="profile__photo">', className: 'html-tag' },
+        { text: '<img src="profile-photo.png" alt="profile photo">', className: 'html-tag' },
+        { text: '</div>', className: 'html-tag' },
+        { text: '<div class="profile__info">', className: 'html-tag' },
+        { text: '<h1>', className: 'html-tag' },
+        { text: 'Привет, я ', className: 'text' },
+        { text: 'Денис Вишняков', className: 'keyword' },
+        { text: '</h1>', className: 'html-tag' },
+        { text: '<p>', className: 'html-tag' },
+        { text: 'Я начинающий ', className: 'text' },
+        { text: 'frontend-разработчик', className: 'keyword' },
+        { text: '</p>', className: 'html-tag' },
+        { text: '</div>', className: 'html-tag' },
+        { text: '<div class="button">', className: 'html-tag' },
+        { text: 'next slide', className: 'text' },
+        { text: '</div>', className: 'html-tag' },
+        { text: '</div>', className: 'html-tag' },
+        { text: '</div>', className: 'html-tag' }
+    ];
+    let index = 0;
 
-        function typeText() {
-            if (index < text.length) {
-                document.getElementById("typed-text").textContent += text.charAt(index);
-                index++;
-                setTimeout(typeText, 10); // Скорость печати (в миллисекундах)
-            } else {
-                // Печать завершена
-            }
+    function typeText() {
+        if (index < textParts.length) {
+            const part = textParts[index];
+            const span = document.createElement('span');
+            span.className = part.className;
+            span.textContent = part.text;
+            document.getElementById("typed-text").appendChild(span);
+            index++;
+            setTimeout(typeText, 100); // Скорость печати (в миллисекундах)
         }
+    }
 
-        // Запускаем функцию печати текста
-        typeText();
-    });
+    // Запускаем функцию печати текста
+    typeText();
+});
 </script>
 </body>
 </html>
