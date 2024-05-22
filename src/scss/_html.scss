@@ -80,6 +80,7 @@
                         display: flex;
                         flex-direction: row;
                         .counter__side{
+                            padding-left: 5px;
                             text-align: right;
                             width: 5px;
                             display: flex;
@@ -99,7 +100,44 @@
                             }
                         }
                     }
-                    
+                    .code__header{
+                        width: 100%;
+                        background: rgb(24,24,24);
+                        display: flex;
+                        flex-direction: column;
+                        .top__header{
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            .html{
+                                width: 150px;
+                                height: 40px;
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: center;
+                                background: rgb(24, 24, 24);
+                                
+                                gap: 10px;
+                                p{
+                                    color: rgb(228, 101, 17);
+                                }
+                            }
+                            .scss{
+                                width: 150px;
+                                height: 40px;
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: center;
+                                background: rgb(31,31,31);
+                                gap: 10px;
+                                p{
+                                    color: rgb(228, 101, 17);
+                                }
+                            }
+                        }     
+                    }   
                 }
             }
         }
@@ -141,7 +179,7 @@
 }
 
 .string {
-    color: #28A745; /* Зеленый */
+    color: #0ce43f; /* Зеленый */
 }
 
 .comment {
@@ -149,7 +187,7 @@
 }
 
 .html-tag {
-    color: #D73A49; /* Красный */
+    color: #dd8706; /* Красный */
 }
 
 
@@ -165,3 +203,4 @@
 .source-tag{
     color: #00c3ff;
 }
+
