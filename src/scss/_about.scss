@@ -1,0 +1,104 @@
+.wrapper{
+    .container{
+        main{
+            .about__me{
+                height: 800px;
+                justify-content: center;
+                display: flex;
+                flex-direction: column;
+                gap: 50px;
+                .about__header{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    h1{
+                        font-size: 32px;
+                        font-weight: 600;
+                        color: #FFF;
+                    }
+                    .socials{
+                        display: flex;
+                        flex-direction: row;
+                        gap: 30px;
+                        align-items: center;
+                        p{
+                            font-size: 16px;
+                            font-weight: 300;
+                            color: #fff;
+                        }
+                        a{
+                            padding: 5px 25px;
+                            border-radius: 15px;
+                            background: #FFA800;
+                            color: #fff;
+                            font-size: 12px;
+                        }
+                    }
+                }
+                .about__body{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 67px;
+                    p{
+                        font-size: 18px;
+                        font-weight: 400;
+                        color: #FFF;
+                        max-width: 32%;
+
+                        span{
+                            font-size: 18px;
+                            font-weight: 400;
+                            color: #FFA800;
+                        }
+                    }
+                    .main__skills{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 40px;
+                        h1{
+                            font-size: 20px;
+                            font-weight: 600;
+                            color: #FFA800;
+                        }
+                        .skills{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 60px;
+                            justify-content: space-between;
+                            p{
+                                font-size: 18px;
+                                font-weight: 400;
+                                color: #FFF;
+                                max-width: 22%;
+                            }
+                        }
+                    }
+                    .experience{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 40px;
+                        h1{
+                            font-size: 20px;
+                            font-weight: 600;
+                            color: #FFA800;
+                        }
+                        .skills{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 60px;
+                            justify-content: space-between;
+                            p{
+                                font-size: 18px;
+                                font-weight: 400;
+                                color: #FFF;
+                                max-width: 22%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

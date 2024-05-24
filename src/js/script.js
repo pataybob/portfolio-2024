@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             document.getElementById("typed-text-css").appendChild(span);
             index++;
-            setTimeout(typeText, 100); // Скорость печати (в миллисекундах)
+            setTimeout(typeText, 130); // Скорость печати (в миллисекундах)
         }
     }
 
@@ -199,66 +199,77 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // document.addEventListener("DOMContentLoaded", function() {
-//     const text = `              <div class="wrapper">
-//                      <div class="container">
-//                          <div class="about__me">
-//                              <div class="profile__photo">
-//                                  <img src="profile-photo.png" alt="profile photo">
-//                              </div>
-//                              <div class="profile__info">
-//                                  <h1><span class="text">Привет, я </span><span class="keyword">Денис Вишняков</span></h1>
-//                                  <p><span class="text">Я начинающий </span><span class="keyword">frontend-разработчик</span></p>
-//                              </div>
-//                              <div class="button"><span class="text">next slide</span></div>
-//                          </div>
-//                        </div>
-//                      </div>`;
-//     let index = 0;
+//     let blocks = document.querySelectorAll(".block");
 
-//     function typeText() {
-//         if (index < text.length) {
-//             document.getElementById("typed-text").innerHTML += text.charAt(index);
-//             index++;
-//             setTimeout(typeText, 10); // Скорость печати (в миллисекундах)
-//         } else {
-//             // Печать завершена
-//         }
+//     function toggleVisibility() {
+//         let screenWidth = window.innerWidth;
+//         blocks.forEach(function(block) {
+//             if (screenWidth <= 901) {
+//                 block.classList.add("visible");
+//                 block.classList.remove("hidden");
+//             } else {
+//                 if (isElementInViewport(block)) {
+//                     block.classList.add("visible");
+//                     block.classList.remove("hidden");
+//                  } 
+//                 // else {
+//                 //     block.classList.add("hidden");
+//                 //     block.classList.remove("visible");
+//                 // }
+//             }
+//         });
 //     }
 
-//     // Запускаем функцию печати текста
-//     typeText();
+//     window.addEventListener("scroll", toggleVisibility);
+//     window.addEventListener("resize", toggleVisibility);
 // });
 
+// function isElementInViewport(el) {
+//     let rect = el.getBoundingClientRect();
+//     return (
+//         rect.top >= 0 &&
+//         rect.left >= 0 &&
+//         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+//         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+//     );
+// }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const codeEditorElement = document.querySelector('.code__editor');
+    const aboutMeElement = document.querySelector('.about__me');
+    let timeoutId;
 
+    // Скрываем элемент about__me изначально
+    aboutMeElement.classList.add('hidden');
 
-// document.addEventListener("DOMContentLoaded", function() {
-//     const text = `              <div class="wrapper">
-//                     <div class="container">
-//                         <div class="about__me">
-//                             <div class="profile__photo">
-//                                 <img src="profile-photo.png" alt="profile photo">
-//                             </div>
-//                             <div class="profile__info">
-//                                 <h1>Привет, я Денис Вишняков</h1>
-//                                 <p>Я начинающий frontend-разработчик</p>
-//                             </div>
-//                             <div class="button">next slide</div>
-//                         </div>
-//                       </div>
-//                     </div>`;
-//     let index = 0;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                codeEditorElement.classList.add('visible', 'zoom-in');
+                codeEditorElement.classList.remove('hidden', 'zoom-out');
 
-//     function typeText() {
-//         if (index < text.length) {
-//             document.getElementById("typed-text").textContent += text.charAt(index);
-//             index++;
-//             setTimeout(typeText, 10); // Скорость печати (в миллисекундах)
-//         } else {
-//             // Печать завершена
-//         }
-//     }
+                // Удаляем предыдущий таймер, если он существует
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                }
 
-//     // Запускаем функцию печати текста
-//     typeText();
-// });
+                // Устанавливаем новый таймер на 3 секунды
+                timeoutId = setTimeout(() => {
+                    codeEditorElement.classList.add('zoom-out');
+                    codeEditorElement.classList.remove('zoom-in');
+                    
+                    setTimeout(() => {
+                        codeEditorElement.classList.add('hidden');
+                        codeEditorElement.classList.remove('visible');
+                        
+                        // Показываем элемент about__me с анимацией приближения
+                        aboutMeElement.classList.add('visible-ab', 'zoom-in');
+                        aboutMeElement.classList.remove('hidden');
+                    }, 300); // Длительность анимации zoom-out
+                }, 5500);
+            }
+        });
+    }, { threshold: 0.1 }); // Порог срабатывания 10%
+
+    observer.observe(codeEditorElement);
+});
