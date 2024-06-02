@@ -1,32 +1,21 @@
-// script.js
-
 let isScrolling;
 
-// Функция для добавления класса 'active__scroll' к элементу с классом 'header__wrap'
 function addActiveScrollClass() {
     const headerWrap = document.querySelector('.header__wrap');
     if (headerWrap) {
         headerWrap.classList.add('active__scroll');
     }
 }
-
-// Функция для удаления класса 'active__scroll' с элемента с классом 'header__wrap'
 function removeActiveScrollClass() {
     const headerWrap = document.querySelector('.header__wrap');
     if (headerWrap) {
         headerWrap.classList.remove('active__scroll');
     }
 }
-
-// Добавляем событие скролла
 window.addEventListener('scroll', () => {
-    // Добавляем класс 'active__scroll' при начале скролла
     addActiveScrollClass();
 
-    // Очистим предыдущий таймер, если он существует
     window.clearTimeout(isScrolling);
-
-    // Установим новый таймер, который удалит класс 'active__scroll' через 500мс после окончания скролла
     isScrolling = setTimeout(() => {
         removeActiveScrollClass();
     }, 1000);
@@ -108,11 +97,10 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             document.getElementById("typed-text").appendChild(span);
             index++;
-            setTimeout(typeText, 100); // Скорость печати (в миллисекундах)
+            setTimeout(typeText, 100);
         }
     }
 
-    // Запускаем функцию печати текста
     typeText();
 });
 
@@ -190,56 +178,18 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             document.getElementById("typed-text-css").appendChild(span);
             index++;
-            setTimeout(typeText, 130); // Скорость печати (в миллисекундах)
+            setTimeout(typeText, 130);
         }
     }
 
-    // Запускаем функцию печати текста
     typeText();
 });
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     let blocks = document.querySelectorAll(".block");
-
-//     function toggleVisibility() {
-//         let screenWidth = window.innerWidth;
-//         blocks.forEach(function(block) {
-//             if (screenWidth <= 901) {
-//                 block.classList.add("visible");
-//                 block.classList.remove("hidden");
-//             } else {
-//                 if (isElementInViewport(block)) {
-//                     block.classList.add("visible");
-//                     block.classList.remove("hidden");
-//                  } 
-//                 // else {
-//                 //     block.classList.add("hidden");
-//                 //     block.classList.remove("visible");
-//                 // }
-//             }
-//         });
-//     }
-
-//     window.addEventListener("scroll", toggleVisibility);
-//     window.addEventListener("resize", toggleVisibility);
-// });
-
-// function isElementInViewport(el) {
-//     let rect = el.getBoundingClientRect();
-//     return (
-//         rect.top >= 0 &&
-//         rect.left >= 0 &&
-//         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-//         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-//     );
-// }
 
 document.addEventListener('DOMContentLoaded', () => {
     const codeEditorElement = document.querySelector('.code__editor');
     const aboutMeElement = document.querySelector('.about__me');
     let timeoutId;
 
-    // Скрываем элемент about__me изначально
     aboutMeElement.classList.add('hidden');
 
     const observer = new IntersectionObserver((entries) => {
@@ -247,13 +197,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 codeEditorElement.classList.add('visible', 'zoom-in');
                 codeEditorElement.classList.remove('hidden', 'zoom-out');
-
-                // Удаляем предыдущий таймер, если он существует
                 if (timeoutId) {
                     clearTimeout(timeoutId);
                 }
-
-                // Устанавливаем новый таймер на 3 секунды
                 timeoutId = setTimeout(() => {
                     codeEditorElement.classList.add('zoom-out');
                     codeEditorElement.classList.remove('zoom-in');
@@ -262,14 +208,38 @@ document.addEventListener('DOMContentLoaded', () => {
                         codeEditorElement.classList.add('hidden');
                         codeEditorElement.classList.remove('visible');
                         
-                        // Показываем элемент about__me с анимацией приближения
                         aboutMeElement.classList.add('visible-ab', 'zoom-in');
                         aboutMeElement.classList.remove('hidden');
-                    }, 300); // Длительность анимации zoom-out
+                    }, 300);
                 }, 5500);
             }
         });
-    }, { threshold: 0.1 }); // Порог срабатывания 10%
+    }, { threshold: 0.1 });
 
     observer.observe(codeEditorElement);
+});
+
+
+
+
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('.block');
+    const menuContent = document.getElementById('menu-content');
+    const navItems = document.querySelectorAll('.header__item');
+    let currentSection = 'HOME';
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 70;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('data-title');
+        }
+    });
+    menuContent.textContent = currentSection;
+    navItems.forEach(item => {
+        item.classList.remove('select');
+        if (item.getAttribute('data-title') === currentSection) {
+            item.classList.add('select');
+        }
+    });
 });

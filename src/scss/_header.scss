@@ -31,6 +31,11 @@
                         font-weight: 400;
                         color: #ABA0A0;
                         cursor: pointer;
+                        transition: all 0.4s ease;
+                        &:hover{
+                            font-weight: 700;
+                            color: #FFFFFF;
+                        }
                     }
                     .select{
                         font-weight: 700;

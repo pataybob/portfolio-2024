@@ -37,6 +37,11 @@
   font-weight: 400;
   color: #ABA0A0;
   cursor: pointer;
+  transition: all 0.4s ease;
+}
+.wrapper .container header .header__wrap .header__nav .header__item:hover {
+  font-weight: 700;
+  color: #FFFFFF;
 }
 .wrapper .container header .header__wrap .header__nav .select {
   font-weight: 700;
@@ -112,6 +117,7 @@ body {
   background: linear-gradient(to right, #FF0000 44%, #00FFA3 56%, #8AA9D6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  cursor: pointer;
 }
 .wrapper .container .hero .main__content .my__name {
   position: relative;
@@ -466,6 +472,81 @@ body {
   font-weight: 400;
   color: #FFF;
   max-width: 22%;
+}
+
+.wrapper .container main .works {
+  margin-top: 300px;
+}
+.wrapper .container main .works .works__wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.wrapper .container main .works .works__wrapper .works__container {
+  padding-bottom: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px 10px;
+  grid-template-areas: "delayou hh-soft zxcwor" "delayou genshin-re-sell redlights" ". . .";
+}
+.wrapper .container main .works .works__wrapper .works__container .delayou {
+  width: 400px;
+  height: 400px;
+  grid-area: delayou;
+  background: url(../images/delayou.png) center !important;
+  filter: blur(4px);
+  transition: all 0.6s ease;
+}
+.wrapper .container main .works .works__wrapper .works__container .delayou:hover {
+  filter: blur(0px);
+}
+.wrapper .container main .works .works__wrapper .works__container .hh-soft {
+  grid-area: hh-soft;
+  width: 400px;
+  height: 190px;
+  filter: blur(4px);
+  background: url(../images/hh-soft.png) center !important;
+  transition: all 0.6s ease;
+}
+.wrapper .container main .works .works__wrapper .works__container .hh-soft:hover {
+  filter: blur(0px);
+}
+.wrapper .container main .works .works__wrapper .works__container .zxcwor {
+  grid-area: zxcwor;
+  width: 400px;
+  height: 190px;
+  background: url(../images/zxcwor.png) center !important;
+  filter: blur(4px);
+  transition: all 0.6s ease;
+}
+.wrapper .container main .works .works__wrapper .works__container .zxcwor:hover {
+  filter: blur(0px);
+}
+.wrapper .container main .works .works__wrapper .works__container .genshin-resell {
+  grid-area: genshin-re-sell;
+  width: 400px;
+  height: 190px;
+  filter: blur(4px);
+  background: url(../images/genshin.png) center !important;
+  transition: all 0.6s ease;
+}
+.wrapper .container main .works .works__wrapper .works__container .genshin-resell:hover {
+  filter: blur(0px);
+}
+.wrapper .container main .works .works__wrapper .works__container .redlights {
+  grid-area: redlights;
+  width: 400px;
+  height: 190px;
+  filter: blur(4px);
+  background: url(../images/redlights.png) center !important;
+  transition: all 0.6s ease;
+}
+.wrapper .container main .works .works__wrapper .works__container .redlights:hover {
+  filter: blur(0px);
+}
+.wrapper .container main .works .works__wrapper .works__container .work__item {
+  background: #FFF;
+  border-radius: 25px;
 }
 
 * {

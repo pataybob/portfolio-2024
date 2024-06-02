@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Sidebar Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        .page {
+    position: fixed;
+    left: 0;
+    top: 50%;
+}
+.info {
+    min-width: 300px;
+    text-align: center;
+    height: 40px;
+    border-radius: 25px;
+    transform: rotate(90deg);
+    background: #777777;
+    position: absolute;
+}
+.home {
+    color: #fff;
+    font-weight: 700;
+    position: relative;
+    top: 10px;
+}
+
+.block {
+    height: 100vh;
+    padding: 20px;
+    font-size: 24px;
+}
+    </style>
+    <div class="page">
+        <div class="info">
+            <p class="home" id="menu-content">HOME</p>
+        </div>
+    </div>
+
+    <div class="block" data-title="Section 1">Section 1 Content</div>
+    <div class="block" data-title="Section 2">Section 2 Content</div>
+    <div class="block" data-title="Section 3">Section 3 Content</div>
+    <div class="block" data-title="Section 4">Section 4 Content</div>
+
+    <script >
+        window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('.block');
+    const menuContent = document.getElementById('menu-content');
+    let currentSection = 'HOME';
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - sectionHeight / 3 && pageYOffset < sectionTop + sectionHeight - sectionHeight / 3) {
+            currentSection = section.getAttribute('data-title');
+        }
+    });
+
+    menuContent.textContent = currentSection;
+});
+    </script>
+</body>
+</html>

@@ -41,6 +41,7 @@ body {
   background: linear-gradient(to right, #FF0000 44%, #00FFA3 56%, #8AA9D6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  cursor: pointer;
 }
 .wrapper .container .hero .main__content .my__name {
   position: relative;

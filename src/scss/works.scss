@@ -1,0 +1,83 @@
+.wrapper{
+    .container{
+        main{
+            .works{
+                margin-top: 300px;
+                .works__wrapper{
+                    max-width: 1300px;
+                    margin: 0 auto;
+                    .works__container{
+                        padding-bottom: 25px;
+                        display: grid; 
+                        grid-template-columns: 1fr 1fr; 
+                        grid-template-rows: 1fr 1fr; 
+                        gap: 20px 10px; 
+                        grid-template-areas: 
+                          "delayou hh-soft zxcwor"
+                          "delayou genshin-re-sell redlights"
+                          ". . ."; 
+                        .delayou{
+                            width: 400px;
+                            height: 400px;
+                            grid-area: delayou;
+                            background: url(../images/delayou.png) center !important;
+                            filter: blur(4px);
+                            transition: all 0.6s ease;
+                            &:hover{
+                                filter: blur(0px);
+                            }
+                        }
+                        .hh-soft{
+                            grid-area: hh-soft;
+                            width: 400px;
+                            height: 190px;
+                            filter: blur(4px);
+                            background: url(../images/hh-soft.png) center !important;
+                            transition: all 0.6s ease;
+                            &:hover{
+                                filter: blur(0px);
+                            }
+                        }
+                        .zxcwor{
+                            grid-area: zxcwor;
+                            width: 400px;
+                            height: 190px;
+                            background: url(../images/zxcwor.png) center !important;
+                            filter: blur(4px);
+                            transition: all 0.6s ease;
+                            &:hover{
+                                filter: blur(0px);
+                            }
+                        }
+                        .genshin-resell{
+                            grid-area: genshin-re-sell;
+                            width: 400px;
+                            height: 190px;
+                            filter: blur(4px);
+                            background: url(../images/genshin.png) center !important;
+                            transition: all 0.6s ease;
+                            &:hover{
+                                filter: blur(0px);
+                            }
+                        }
+                        .redlights {
+                             grid-area: redlights; 
+                             width: 400px;
+                            height: 190px;
+                            filter: blur(4px);
+                            background: url(../images/redlights.png) center !important;
+                            transition: all 0.6s ease;
+                            &:hover{
+                                filter: blur(0px);
+                            }
+                        }
+                        .work__item{
+                            background: #FFF;
+                            border-radius: 25px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
